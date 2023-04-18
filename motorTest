@@ -1,14 +1,13 @@
+#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+from mfrc522 import SimpleMFRC522
+
 from gpiozero import Motor
 from gpiozero import Servo
 from time import sleep
 
 servo = Servo(25)
-
-
-#!/usr/bin/env python
-
-import RPi.GPIO as GPIO
-from mfrc522 import SimpleMFRC522
 motor1 = Motor(4, 14)
 
 reader = SimpleMFRC522()
@@ -19,6 +18,8 @@ try:
         print(text)
         
         if(text == "UntitledPaintingA"){
+                motor1 = motor1.forward(0.5)
+        }
           
 finally:
         GPIO.cleanup()
