@@ -19,7 +19,7 @@ try:
     print(id)
     print(text)
 
-    if(text == paintingA):
+    if text.__eq__(paintingA):
         p.ChangeDutyCycle(5)
         time.sleep(0.5)
         p.ChangeDutyCycle(7.5)
