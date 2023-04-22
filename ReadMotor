@@ -36,6 +36,8 @@ try:
         time.sleep(0.5)
         p.ChangeDutyCycle(2.5)
         time.sleep(0.5)
+    else:
+       GPIO.cleanup()
 
 except KeyboardInterrupt:
   p.stop()
