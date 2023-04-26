@@ -16,12 +16,12 @@ reader = SimpleMFRC522()
 
 try:
     id, text = reader.read()
-    text2 = text
+    text2 = str(text)
     
     print(id)
     print(text)
 
-    if text2.__eq__(paintingA):
+    if text2 == paintingA:
         p.ChangeDutyCycle(5)
         time.sleep(0.5)
         p.ChangeDutyCycle(7.5)
