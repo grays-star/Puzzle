@@ -9,8 +9,8 @@ p = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
 p.start(2.5) # Initialization
 try:
   while True:
-    setAngle(90)
-    setAngle(45)
+    SetAngle(90)
+    SetAngle(45)
 except KeyboardInterrupt:
   p.stop()
   pwm.stop()
