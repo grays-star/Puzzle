@@ -60,5 +60,20 @@ if __name__ == "__main__":
     nfc.addBoard("reader2",6)
     nfc.addBoard("reader3",13)
 
-    data = nfc.read("reader1")
-    nfc.write("reader2",data)
+    #data = nfc.read("reader1")
+    #nfc.write("reader2",data)
+
+    id, text = nfc.read("reader1")
+    print("reader 1")
+    print(id)
+    print(text)
+
+    id, text = nfc.read("reader2")
+    print("reader 2")
+    print(id)
+    print(text)
+
+    id, text = nfc.read("reader3")
+    print("reader 3")
+    print(id)
+    print(text)
