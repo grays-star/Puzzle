@@ -38,7 +38,7 @@ try:
         SetAngle(90)
         SetAngle(180)
         SetAngle(270)
-	SetAngle(360)
+        SetAngle(360)
 
     elif rfidTag == paintingB:
         print("yes, B")
