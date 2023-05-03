@@ -34,18 +34,12 @@ try:
     if rfidTag == paintingA:
         print("yes, A")
         
-        SetAngle(0)
         SetAngle(90)
-        SetAngle(180)
-        SetAngle(90)
-        SetAngle(0)
+        
 
     elif rfidTag == paintingB:
         print("yes, B")
-
-        SetAngle(90)
-        SetAngle(0)
-        SetAngle(180)
+    
         SetAngle(0)    
             
     else:
