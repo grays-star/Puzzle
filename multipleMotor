@@ -12,7 +12,7 @@ pwm = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
 
 pwm.start(0)
 
-paintingA = '632265873354'
+paintingA = '222767519619'
 paintingB = '419146909097'
 reader = SimpleMFRC522()
 
