@@ -4,19 +4,25 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 from time import sleep
 
-servoPIN = 17
+motor1pin = 17
+motor2pin = 27
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(servoPIN, GPIO.OUT)
+GPIO.setup(motor1pin, GPIO.OUT)
+GPIO.setup(motor2pin, GPIO.OUT)
 
-pwm = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
+pwm1 = GPIO.PWM(motor1pin, 50) # GPIO 17 for PWM with 50Hz
+pwm2 = GPIO.PWM(motor2pin, 50) # GPIO 27 for PWM with 50Hz
 
-pwm.start(0)
+pwm1.start(0)
+pwm2.start(0)
 
 paintingA = '222767519619'
 paintingB = '419146909097'
+
 reader = SimpleMFRC522()
 
-def SetAngle(angle):
+def SetAngle(angle, servoPIN, pwm):
 	duty = angle / 18 + 2
 	GPIO.output(servoPIN, True)
 	pwm.ChangeDutyCycle(duty)
@@ -34,18 +40,23 @@ try:
     if rfidTag == paintingA:
         print("yes, A")
         
-        SetAngle(90)
+        SetAngle(90, motor1pin, pwm1)
+        sleep(30)
+        SetAngle(0, motor1pin, pwm1)
         
 
     elif rfidTag == paintingB:
         print("yes, B")
     
-        SetAngle(0)    
+        SetAngle(90, motor2pin, pwm2)
+        sleep(30)
+        SetAngle(0, motor2pin, pwm2)   
             
     else:
         print("no")
         GPIO.cleanup()
 
 except KeyboardInterrupt:
-  pwm.stop()
+  pwm1.stop()
+  pwm2.stop()
   GPIO.cleanup()
