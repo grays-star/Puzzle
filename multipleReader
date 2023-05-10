@@ -7,7 +7,7 @@ class NFC():
         self.reader = SimpleMFRC522()
         self.close()
         self.bus
-        self.boards = {}
+        self.boards = {5, 6, 13}
         
         self.bus = bus
         self.device = device
