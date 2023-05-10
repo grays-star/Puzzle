@@ -39,63 +39,76 @@ try:
     print(text)
 
     if rfidTag == paintingB:
+        print("yes, B")
+        
         sleep(10)
         id, text = reader.read()
         rfidTag = str(id)
     
         print(id)
         print(text)
-        print("yes, B")
+        
 
         if rfidTag == paintingC:
+            print("yes, c")
+            
             sleep(10)
             id, text = reader.read()
             rfidTag = str(id)
     
             print(id)
             print(text)
-            print("yes, c")
+            
            
             if rfidTag == paintingA:
+                print("yes, a")
+                
                 sleep(10)
+                
+                SetAngle(90, motor1pin, pwm1)
+                sleep(15)
+                SetAngle(0, motor1pin, pwm1)
+
+                print("puzzle 1 solved")
+                print("please remove pictures")
+                sleep(30)
+                print("30 seconds")
+                sleep(30)
+
                 id, text = reader.read()
                 rfidTag = str(id)
         
                 print(id)
                 print(text)
-                print("yes, a")
-                print("puzzle 1 solved")
-
-                SetAngle(90, motor1pin, pwm1)
-                sleep(15)
-                SetAngle(0, motor1pin, pwm1)
+                
 
                 if rfidTag == paintingA:
+                    print("yes, a")
+                    
                     sleep(10)
                     id, text = reader.read()
                     rfidTag = str(id)
                 
                     print(id)
                     print(text)
-                    print("yes, a")
+                    
 
                     if rfidTag == paintingB:
+                        print("yes, b")
+                        
                         sleep(10)
                         id, text = reader.read()
                         rfidTag = str(id)
                 
                         print(id)
                         print(text)
-                        print("yes, b")
+                        
                     
                         if rfidTag == paintingC:
-                            sleep(10)
-                            id, text = reader.read()
-                            rfidTag = str(id)
-                    
-                            print(id)
-                            print(text)
                             print("yes, c")
+                            
+                            sleep(10)
+                            
                             print("puzzle 2 solved")
 
                             SetAngle(90, motor2pin, pwm2)
