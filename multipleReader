@@ -3,7 +3,7 @@ from mfrc522 import SimpleMFRC522
 import spidev
 
 class NFC():
-    def __init__(self, bus=0, device=0, spd=1000000):
+    def __init__(self, bus, device, spd):
         self.reader = SimpleMFRC522()
         self.close()
         self.bus
@@ -12,6 +12,9 @@ class NFC():
         self.bus = bus
         self.device = device
         self.spd = spd
+        bus = 0
+        device = 0
+        spd = 1000000
 
     def reinit(self):
         self.reader.READER.spi = spidev.SpiDev()
