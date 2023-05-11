@@ -12,9 +12,6 @@ class NFC():
         self.bus = bus
         self.device = device
         self.spd = spd
-        bus = 0
-        device = 0
-        spd = 1000000
 
     def reinit(self):
         self.reader.READER.spi = spidev.SpiDev()
@@ -58,7 +55,7 @@ class NFC():
 
 
 if __name__ == "__main__":
-    nfc = NFC()
+    nfc = NFC(0, 0, 1000000)
     nfc.addBoard("reader1",5)
     nfc.addBoard("reader2",6)
     nfc.addBoard("reader3",13)
