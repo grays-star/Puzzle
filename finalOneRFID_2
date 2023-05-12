@@ -85,6 +85,14 @@ try:
     print("please remove pictures")
     print("30 seconds")
     sleep(30)
+    print("puzzle 2 start")
+   
+    id, text = reader.read()
+    rfidTag = str(id)
+    
+    print(id)
+    print(text)
+
 
     while rfidTag != paintingA:
         id, text = reader.read()
